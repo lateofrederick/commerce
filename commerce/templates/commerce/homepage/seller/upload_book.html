@@ -1,0 +1,31 @@
+{% extends 'commerce/base.html' %}
+
+
+{% block title %} Buyer Homepage {% endblock %}
+
+
+{% block content %}
+  {% include 'commerce/homepage/seller/navbar.html' %}
+    {% include 'commerce/shared/messages.html' %}
+    <div class="card card-body mr-auto ml-auto mt-5 col-sm-5">
+        <h3>Add a new book</h3>
+        <div class="">
+            <form class="form" method="post"
+                  action="{% url 'commerce:upload_new_book' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <button type="submit"
+                        class="btn btn-success btn-round btn-block mb-3"
+                        style="background-color: #0BC690;">
+                    Add Book
+                </button>
+            </form>
+                                            </div>
+    </div>
+{% endblock %}

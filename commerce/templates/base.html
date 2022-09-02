@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>{% block title %} Store {% endblock %}</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
+
+    <!-- BASE STYLESHEETS -->
+    {% block stylesheet %}
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+        <link id="pagestyle" href="{% static 'css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+    {% endblock %}
+</head>
+<body class="">
+{% block content %}{% endblock %}
+{% block javascript %}{% endblock %}
+{% block custom_js %}{% endblock %}
+
+<script src="{% static 'js/soft-ui-dashboard.min.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

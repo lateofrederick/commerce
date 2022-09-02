@@ -1,0 +1,46 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-gradient-dark z-index-3 py-3">
+  <div class="container">
+    <a class="navbar-brand text-white" href="{% url 'commerce:buyer_homepage' %}" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+     Hi {{ user.username }}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover ms-auto">
+        <div class="row">
+          <div class="col-auto m-auto">
+            <a class="text-white cursor-pointer">
+              <i class="fa fa-cog fixed-plugin-button-nav"></i>
+            </a>
+          </div>
+          <div class="col-auto m-auto">
+            <div class="dropdown">
+              <a class="text-white cursor-pointer" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bell"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right px-2 py-3 ms-n4" aria-labelledby="dropdownMenuButton">
+                ...
+              </ul>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="">
+              <form class="d-inline" method="GET" action="{% url 'commerce:search_books' %}">
+            <input class="form-control my-1 me-1" name="q" placeholder="Search" aria-label="Search">
+            <button class="btn btn btn-secondary my-1 my-sm-0" type="submit">Search</button>
+          </form>
+            <a class="btn bg-gradient-primary my-1 me-1" href="{% url 'commerce:purchases' %} " type="button" >Purchases</a>
+            <a class="btn bg-gradient-primary my-1 me-1" href="{% url 'commerce:checkout_items' %}" type="button" >
+                Cart
+               <span class="badge badge-sm badge-danger" style="margin-left:5px;">{{ cart.count}}</span>
+            </a>
+            {% if not user.is_authenticated %} <a class="btn bg-gradient-primary my-1 me-1" href="{% url 'commerce:login_into_account' %}" type="button" >Login</a> {% endif %}
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

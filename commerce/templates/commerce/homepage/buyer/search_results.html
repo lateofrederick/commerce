@@ -1,0 +1,51 @@
+{% extends 'commerce/base.html' %}
+
+
+{% block title %} Buyer Homepage {% endblock %}
+
+
+{% block content %}
+  {% include 'commerce/homepage/buyer/navbar.html' %}
+    {% include 'commerce/shared/messages.html' %}
+  <div>
+    {% if books.count > 0 %}
+      <h3 class="text-center mt-5">Available books</h3>
+     {% else %}
+      <h3>No books found</h3>
+      {% endif %}
+  </div>
+    {% if books.count > 0 %}
+          <div class="container mr-auto ml-auto mt-5">
+    <div class="page_inner" >
+          <div class="row">
+      <section>
+        <ol class="row list-unstyled ml-0 pl-0">
+          {% for book in books %}
+          <li class="col-sm-6 col-md-4 col-lg-3">
+                <article class="product_pod">
+                  <div class="image_container w-100">
+                      <a href="/en-gb/catalogue/the-shellcoders-handbook_209/">
+                          <img src="{{ book.image.url}}" alt="{{ book.title }}" class="img-thumbnail w-auto mx-auto my-0 h-auto">
+                      </a>
+                  </div>
+                  <h4 class="mt-3">
+                            <a href="/en-gb/catalogue/the-shellcoders-handbook_209/" title="The shellcoder's handbook">
+                                {{ book.title }}
+                            </a>
+                        </h4>
+                  <div class="product_price w-100">
+                  <p class="price_color">${{ book.price }}</p>
+                    <a type="button" class="btn btn-primary btn-block"
+                        href="{% url 'commerce:add_book_to_cart' book.id %}">Add to Cart</a>
+            </div>
+    </article>
+</li>
+          {% endfor %}
+        </ol>
+      </section>
+    </div>
+
+    </div>
+  </div>
+    {% endif %}
+{% endblock %}

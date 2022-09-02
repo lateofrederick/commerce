@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="col-md-6 mr-auto ml-auto mt-5">
+        {% include 'commerce/shared/messages.html' %}
+        <div class="card">
+                            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                            <h5 class="header text-center p-5">Login</h5>
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                            <div class="col-sm-8">
+                                                <form class="form" method="post"
+                                                      action="{% url 'commerce:login_into_account' %}">
+                                                    {% csrf_token %}
+
+                                                    {% for field in form.visible_fields %}
+                                                        <div class="form-group">
+                                                            {{ field }}
+                                                        </div>
+                                                    {% endfor %}
+                                                    <button type="submit"
+                                                            class="btn btn-success btn-round btn-block mb-3"
+                                                            style="background-color: #0BC690;">
+                                                        Login
+                                                    </button>
+
+                                                    <p class="text-center">Don't have an account?
+                                                        <a href="{% url 'commerce:create_new_account' %}"
+                                                           class="font-weight-bold"
+                                                           style="color: #0BC690;">
+                                                            Register
+                                                        </a>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                            </div>
+
+                        </div>
+    </div>
+{% endblock %}
