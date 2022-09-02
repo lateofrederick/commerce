@@ -1,10 +1,12 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from commerce.forms.new_book_form import NewBookForm
 from commerce.utils.custom_decorators import is_seller
 
 
+@login_required(login_url='/commerce/accounts/login')
 @is_seller()
 def upload_new_book(request):
     """ This view allows a seller to upload a new book into the system """
