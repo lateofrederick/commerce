@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-dfyqbmfsjm#pnc#bmie#tce58bdlw1n%7jr!c!dgrbwhl6gqf(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -158,3 +158,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'myecentials2021@gmail.com'
 EMAIL_HOST_PASSWORD = 'jguxhutsrymrloxf'
+
+
+try:
+    from .local_config import *
+except ImportError:
+    print("In production")
