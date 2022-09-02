@@ -21,3 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('commerce.urls'))
 ]
+
+
+handler404 = 'store.views.http_status_views.http_status_404'
+handler500 = 'store.views.http_status_views.http_status_500'
