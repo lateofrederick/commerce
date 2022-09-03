@@ -3,3 +3,6 @@
 .env
 __pycache__/
 .idea/
+
+store/local_config.py
+
