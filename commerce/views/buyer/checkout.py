@@ -10,7 +10,7 @@ from commerce.utils.custom_decorators import is_buyer
 from commerce.utils.email_user import send_checkout_email
 
 
-@login_required(login_url='/commerce/accounts/login')
+@login_required(login_url='/accounts/login')
 @is_buyer()
 def checkout_items(request):
     """ List all cart items to be checked out"""

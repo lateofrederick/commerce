@@ -7,7 +7,7 @@ from commerce.models.cart import Cart
 from commerce.utils.custom_decorators import is_buyer
 
 
-@login_required(login_url='/commerce/accounts/login')
+@login_required(login_url='/accounts/login')
 @is_buyer()
 def add_item_to_cart(request, book_id):
     """ allow an authenticated user to add a book to cart"""
