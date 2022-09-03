@@ -22,8 +22,13 @@ def get_total_sales_and_customers(request):
     try:
         total = Order.objects.filter(status=True).aggregate(total=Sum('book__price'))
         customers = Order.objects.filter(status=True).values('buyer_id').distinct().count()
+
+        total_orders = 0
+        if total['total'] is not None:
+            total_orders = total['total']
+
         return {
-            'sales_total': total['total'],
+            'sales_total': total_orders,
             'customers': customers
         }
     except Exception as e:
