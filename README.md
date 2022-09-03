@@ -58,6 +58,17 @@ $ python3 manage.py runserver
 - log out system not added
 ```
 
+### Account and authentication
+```
+- A user can only log in once an account is created
+- A user can create an account as a buyer and seller and
+    afterwards redirected to a login page
+- Once login a user is presented with a dashbaord base on his priveleges
+    (Seller, Buyer)
+- Seller gets to upload new books 
+- A buyer gets all books in the system and can make a purchase
+```
+
 
 
 
