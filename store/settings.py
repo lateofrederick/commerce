@@ -148,7 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 cloudinary.config(
     cloud_name='lateo',
     api_key='221736253357189',
-    api_secret='Uk4UcXR_quzutCsZF6xN3dBxmaQ'
+    api_secret='Uk4UcXR_quzutCsZF6xN3dBxmaQ',
+    api_proxy='http://proxy.server:3128'
 )
 
 CLOUDINARY_URL="cloudinary://221736253357189:Uk4UcXR_quzutCsZF6xN3dBxmaQ@lateo"
