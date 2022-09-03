@@ -17,9 +17,13 @@ def checkout_items(request):
     items = Cart.objects.filter(buyer=request.user)
     total = items.aggregate(total=Sum('book__price'))
 
+    sum_total = 0
+    if total['total'] is not None:
+        sum_total = total['total']
+
     return render(request, 'commerce/homepage/buyer/checkout.html', {
         'items': items,
-        'total': total
+        'total': sum_total
     })
 
 
@@ -38,7 +42,10 @@ def order_items(request):
     Cart.objects.filter(buyer=request.user).delete()
 
     # send user email message upon ordering of items
-    send_checkout_email("Order Completed", "You have successfully fulfilled your order", request.user.email)
+    try:
+        send_checkout_email("Order Completed", "You have successfully fulfilled your order", request.user.email)
+    except Exception:
+        print('authentication failed')
 
     messages.success(request, 'Items successfully ordered. Please wait for shipping')
 
