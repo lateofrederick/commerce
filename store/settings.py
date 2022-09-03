@@ -151,6 +151,11 @@ cloudinary.config(
     api_secret='Uk4UcXR_quzutCsZF6xN3dBxmaQ'
 )
 
+CLOUDINARY_URL="cloudinary://221736253357189:Uk4UcXR_quzutCsZF6xN3dBxmaQ@lateo"
+
+import cloudinary.uploader
+import cloudinary.api
+
 # Email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
